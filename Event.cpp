@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <iomanip>
-#include "Event.h"
+#include "event.h"
 #include <cstring>
 using namespace std;
 
@@ -23,8 +23,8 @@ namespace sdds {
 		h = time / 3600;
 		m = (time - (h * 3600)) / 60;
 		s = (time - (h * 3600) - (m * 60));
-		
-		cout << setw(3) << setfill(' ') << counter++ << ".";
+
+		cout << setw(2) << setfill(' ') << counter++ << ". ";
 
 		if (description != nullptr && description[0] != '\0')
 		{
