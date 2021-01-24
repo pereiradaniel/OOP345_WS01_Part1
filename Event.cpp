@@ -28,7 +28,7 @@ namespace sdds {
 		
 		cout << setw(3) << setfill(' ') << counter++ << ".";
 
-		if (description != nullptr && description[0] != ' ')
+		if (description != nullptr && description[0] != '\0')
 		{
 			cout << setw(2) << setfill('0') << h << ":" << setw(2) << setfill('0') << m << ":" << setw(2) << setfill('0') << s << " => " << description << endl;
 		}
@@ -39,7 +39,7 @@ namespace sdds {
 	}
 
 	void Event::set(const char* src) {
-		if (src != nullptr && src[0] != ' ')
+		if (src != nullptr && src[0] != '\0')
 		{
 			description = new char[strlen(src) + 1];
 			strcpy(description, src);
@@ -47,18 +47,20 @@ namespace sdds {
 		}
 		else
 		{
+			delete[] description;
 			description = nullptr;
-			//delete[] description;
 		}
 	}
 
 	void Event::set() {
 		secMidnight = 0;
-		//description = nullptr;
-		//delete[] description;
+		if (description != nullptr && description[0] != '\0') {
+			description = nullptr;
+		}
 	}
 
 	Event::~Event() {
+		description = nullptr;
 		delete[] description;
 	}
 }
