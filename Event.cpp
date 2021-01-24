@@ -1,17 +1,15 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <iomanip>
-
 #include "Event.h"
 #include <cstring>
-
 using namespace std;
 
 unsigned int g_sysClock = 0;
 
 namespace sdds {
 	Event::Event() {
-		secMidnight = 0;
+		time = 0;
 		description = nullptr;
 	}
 
@@ -22,9 +20,9 @@ namespace sdds {
 		int m = 0;
 		int s = 0;
 
-		h = secMidnight / 3600;
-		m = (secMidnight - (h * 3600)) / 60;
-		s = (secMidnight - (h * 3600) - (m * 60));
+		h = time / 3600;
+		m = (time - (h * 3600)) / 60;
+		s = (time - (h * 3600) - (m * 60));
 		
 		cout << setw(3) << setfill(' ') << counter++ << ".";
 
@@ -43,7 +41,7 @@ namespace sdds {
 		{
 			description = new char[strlen(src) + 1];
 			strcpy(description, src);
-			secMidnight = g_sysClock;
+			time = g_sysClock;
 		}
 		else
 		{
@@ -53,7 +51,7 @@ namespace sdds {
 	}
 
 	void Event::set() {
-		secMidnight = 0;
+		time = 0;
 		if (description != nullptr && description[0] != '\0') {
 			description = nullptr;
 		}

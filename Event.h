@@ -6,9 +6,8 @@ extern unsigned int g_sysClock;
 namespace sdds {
 	class Event
 	{
-		char* description;			// event description
-		unsigned int secMidnight;	// number of seconds after midnight
-
+		char* description;	// event description
+		unsigned int time;	// number of seconds after midnight
 
 	public:
 		Event();
