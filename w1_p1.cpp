@@ -20,14 +20,16 @@ codes
 
 // TODO: write the prototype for the main function
 //         to accept command line arguments
-
+int main(int argc, char* argv[])
 {
 	std::cout << "Command Line:\n";
 	// TODO: print the command line here, in the format
 	// 1: first argument
+	std::cout << argv[0];
 	// 2: second argument
+	std::cout << argv[1];
 	// 3: third argument
-
+	std::cout << argv[2];
 
 	std::cout << std::endl;
 
